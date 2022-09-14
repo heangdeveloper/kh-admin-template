@@ -58,7 +58,7 @@ svg {
     @apply block max-w-[95%] text-[12px] text-ellipsis whitespace-nowrap overflow-hidden;
 }
 .dropdown-menu.profile-dropdown {
-    @apply bg-[#222] border border-[#2c2c2c] rounded-bl-[4px] rounded-br-[4px] text-slate-100 text-left py-[4px] px-0;
+    @apply hidden bg-[#222] border border-[#2c2c2c] rounded-bl-[4px] rounded-br-[4px] text-slate-100 text-left py-[4px] px-0;
 }
 .profile-dropdown {
     @apply min-w-[170px];
@@ -70,11 +70,20 @@ svg {
 .left_sidebar {
     @apply hidden md:block bg-[#222222] md:w-[60px] md:min-w-[60px] fixed top-0 bottom-0 z-[1000] pt-[70px] lg:w-[260px] lg:min-w-[260px];
 }
+.left_sidebar .side_nav {
+    @apply list-none pl-0;
+}
+.left_sidebar .side_nav_link {
+    @apply block text-[.9375rem] text-[#8391a2] py-[10px] px-[30px];
+}
+.left_sidebar .side_nav_text {
+    @apply align-middle ml-[10px] md:hidden lg:block;
+}
 
 /* footer start */
 
 .footer {
-    @apply text-slate-300 py-5 border-t border-slate-800 absolute right-0 bottom-0 left-0 md:left-[70px] lg:left-[260px] transition duration-100 ease-linear;
+    @apply text-slate-100 py-5 border-t border-slate-800 absolute right-0 bottom-0 left-0 md:left-[70px] lg:left-[260px] transition duration-100 ease-linear;
 }
 .footer_container {
     @apply px-6;
@@ -89,7 +98,7 @@ svg {
 /* content start */
 
 .content_page {
-    @apply ml-[0px] overflow-hidden min-h-screen px-3 pt-[70px] pb-[62px] md:ml-[70px] lg:ml-[260px];
+    @apply ml-[0px] overflow-hidden min-h-screen px-3 pt-[70px] pb-[62px] md:ml-[60px] lg:ml-[260px];
 }
 .content {
     @apply w-full;
