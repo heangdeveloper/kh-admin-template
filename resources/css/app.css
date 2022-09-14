@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    margin: 0;
+    background-color: #121212;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #aab8c5;
+}
+
+svg {
+    display: inline-block;
+}
+.wrapper {
+    @apply w-full h-full overflow-hidden;
+}
+
+.header {
+    @apply bg-[#1f1f1f] px-0 min-h-[70px] fixed top-0 right-0 left-0 md:left-[60px] lg:left-[260px] z-[1000] sm:px-3;
+}
+.header_container {
+    @apply px-3;
+}
+.btn_toggle_menu {
+    @apply text-slate-100 h-[70px] leading-[70px] w-[60px] bg-transparent text-2xl float-left z-[1] relative bottom-0 -ml-6;
+}
+.top_bar_menu {
+    @apply float-right relative z-[1];
+}
+.top_bar_menu .tob_bar_item {
+    @apply float-left max-h-[70px];
+}
+.top_bar_menu .tob_bar_item .top_bar_link {
+    @apply text-slate-100 text-center p-0 min-w-[32px] mx-[7px] block relative;
+}
+.top_bar_menu .tob_bar_item .top_bar_link svg {
+    @apply min-h-[70px];
+}
+.nav-user {
+    @apply text-left max-w-[170px] max-h-[70px] py-[15px] pl-[57px] pr-[20px] bg-[#292929] mx-0 !important;
+}
+.nav-user .user-avatar {
+    @apply absolute left-[15px];
+}
+.nav-user .user-avatar img {
+    @apply w-[32px] h-[32px] rounded-full;
+}
+.nav-user .user-name {
+    @apply block max-w-[95%] font-medium text-ellipsis whitespace-nowrap overflow-hidden;
+}
+.nav-user .user-role {
+    @apply block max-w-[95%] text-[12px] text-ellipsis whitespace-nowrap overflow-hidden;
+}
+.dropdown-menu.profile-dropdown {
+    @apply bg-[#222] border border-[#2c2c2c] rounded-bl-[4px] rounded-br-[4px] text-slate-100 text-left py-[4px] px-0;
+}
+.profile-dropdown {
+    @apply min-w-[170px];
+}
+.profile-dropdown .dropdown-link {
+    @apply block w-full py-[7px] px-[20px] font-normal text-white text-inherit whitespace-nowrap bg-transparent bottom-0 hover:bg-[#292929];
+}
+
+.left_sidebar {
+    @apply hidden md:block bg-[#222222] md:w-[60px] md:min-w-[60px] fixed top-0 bottom-0 z-[1000] pt-[70px] lg:w-[260px] lg:min-w-[260px];
+}
+
+/* footer start */
+
+.footer {
+    @apply text-slate-300 py-5 border-t border-slate-800 absolute right-0 bottom-0 left-0 md:left-[70px] lg:left-[260px] transition duration-100 ease-linear;
+}
+.footer_container {
+    @apply px-6;
+}
+.footer_row {
+    @apply flex items-center justify-center flex-wrap md:justify-between;
+}
+.footer_nav {
+    @apply hidden md:block space-x-4;
+}
+
+/* content start */
+
+.content_page {
+    @apply ml-[0px] overflow-hidden min-h-screen px-3 pt-[70px] pb-[62px] md:ml-[70px] lg:ml-[260px];
+}
+.content {
+    @apply w-full;
+}
+.content_container {
+    @apply px-3;
+}
