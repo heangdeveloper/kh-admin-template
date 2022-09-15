@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AccountUser from '../components/header/AccountUser';
+import ButtonToggle from '../components/header/ButtonToggle';
 
 function Header() {
     return (
@@ -8,11 +9,7 @@ function Header() {
             <header className="header">
                 <div className="header_container">
                     <div className="top_bar_logo"></div>
-                    <button className="btn_toggle_menu">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                        </svg>
-                    </button>
+                    <ButtonToggle/>
                     <ul className="top_bar_menu">
                         <li className="tob_bar_item">
                             <Link to="" className="top_bar_link">

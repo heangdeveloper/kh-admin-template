@@ -27,7 +27,8 @@ svg { @apply inline-block; }
 .nav-user .user-role { @apply block max-w-[95%] text-[12px] text-ellipsis whitespace-nowrap overflow-hidden; }
 
 /* profile-dropdown start */
-.dropdown-menu.profile-dropdown { @apply hidden bg-[#222] border border-[#2c2c2c] rounded-bl-[4px] rounded-br-[4px] py-[4px] px-0 text-slate-100 text-left; }
+.dropdown-menu.profile-dropdown { @apply bg-[#222] border border-[#2c2c2c] rounded-bl-[4px] rounded-br-[4px] py-[4px] px-0 text-slate-100 text-left; }
+.dropdown-menu.profile-dropdown.show { @apply block; }
 .profile-dropdown { @apply min-w-[170px]; }
 .profile-dropdown .dropdown-link { @apply block bottom-0 w-full bg-transparent py-[7px] px-[20px] font-normal text-white text-inherit whitespace-nowrap hover:bg-[#292929]; }
 
