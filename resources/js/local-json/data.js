@@ -1,16 +1,49 @@
-import { MdAccountCircle, MdSettings, MdSupport, MdHelpOutline, MdLogout } from "react-icons/md";
-import { AiOutlineDashboard, AiOutlineUser, AiOutlineSetting } from "react-icons/ai";
+import { MdAccountCircle, MdSettings, MdSupport, MdHelpOutline, MdLogout, MdOutlineBackup, MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
+import { AiOutlineDashboard, AiOutlineUser, AiOutlineSetting, AiOutlineFile, AiOutlineInfoCircle } from "react-icons/ai";
+import { BiTerminal } from "react-icons/bi";
+import { FaCogs } from "react-icons/fa";
 
 export const menus = [
     { id: 1, name: 'Dashboard', icon: AiOutlineDashboard, url: '' },
-    { id: 2, name: 'Users', icon: AiOutlineUser, url: '' },
-    { id: 3, name: 'Settings', icon: AiOutlineSetting, url: '' },
+    { id: 2, name: 'Authentication', icon: AiOutlineUser, url: '' },
+    {
+        id: 3,
+        name: 'Advanced',
+        icon: FaCogs,
+        url: '#',
+        submenu: [
+            {
+                id: 1,
+                name: 'File manager',
+                icon: AiOutlineFile,
+                url: ''
+            },
+            {
+                id: 2,
+                name: 'Backups',
+                icon: MdOutlineBackup,
+                url: ''
+            },
+            {
+                id: 3,
+                name: 'Logs',
+                icon: BiTerminal,
+                url: ''
+            },
+            {
+                id: 4,
+                name: 'Settings',
+                icon: MdSettings,
+                url: ''
+            },
+        ]
+    },
     { id: 4, name: 'Logout', icon: MdLogout, url: '' }
 ]
 
 export const profilemenus = [
     { id: 1, name: 'My Account', icon: MdAccountCircle, url: '/my-account', },
-    { id: 2, name: 'Settings', icon: MdSettings, url: '/settings' },
+    { id: 2, name: 'About', icon: AiOutlineInfoCircle, url: '/about' },
     { id: 3, name: 'Support', icon: MdSupport, url: '/support' },
     { id: 4, name: 'Help', icon: MdHelpOutline, url: '/help' },
     { id: 5, name: 'Logout', icon: MdLogout, url: '/logout' },
