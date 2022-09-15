@@ -1,11 +1,36 @@
 import { MdAccountCircle, MdSettings, MdSupport, MdHelpOutline, MdLogout, MdOutlineBackup, MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
-import { AiOutlineDashboard, AiOutlineUser, AiOutlineSetting, AiOutlineFile, AiOutlineInfoCircle } from "react-icons/ai";
+import { AiOutlineDashboard, AiOutlineUser, AiOutlineSetting, AiOutlineFile, AiOutlineInfoCircle, AiOutlineUsergroupAdd } from "react-icons/ai";
 import { BiTerminal } from "react-icons/bi";
 import { FaCogs } from "react-icons/fa";
 
 export const menus = [
-    { id: 1, name: 'Dashboard', icon: AiOutlineDashboard, url: '' },
-    { id: 2, name: 'Authentication', icon: AiOutlineUser, url: '' },
+    { id: 1, name: 'Dashboard', icon: AiOutlineDashboard, url: '/' },
+    { 
+        id: 2,
+        name: 'Authentication',
+        icon: AiOutlineUsergroupAdd,
+        url: '',
+        submenu: [
+            {
+                id: 1,
+                name: 'User',
+                icon: AiOutlineUser,
+                url: '/user'
+            },
+            {
+                id: 2,
+                name: 'Role',
+                icon: MdOutlineBackup,
+                url: ''
+            },
+            {
+                id: 3,
+                name: 'Permission',
+                icon: BiTerminal,
+                url: ''
+            },
+        ]
+    },
     {
         id: 3,
         name: 'Advanced',
@@ -28,13 +53,13 @@ export const menus = [
                 id: 3,
                 name: 'Logs',
                 icon: BiTerminal,
-                url: ''
+                url: '/log'
             },
             {
                 id: 4,
                 name: 'Settings',
                 icon: MdSettings,
-                url: ''
+                url: '/setting'
             },
         ]
     },

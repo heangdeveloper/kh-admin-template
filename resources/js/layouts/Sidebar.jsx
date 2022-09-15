@@ -1,30 +1,34 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { menus } from '../local-json/data'
 
 function Sidebar() {
     return (
         <>
             <aside className="left_sidebar">
-                <Link to="" className="logo">
+                <NavLink  to="" className="logo">
 
-                </Link>
+                </NavLink>
                 <div className="left_sidebar_container">
                     <ul className="side_nav">
                         {menus.map(( item, index) => {
                             return item.submenu ? (
                                 <li className="side_nav_item" key={item.id}>
-                                    <Link to={item.url} className="side_nav_link">
+                                    <button
+                                        className="side_nav_link"
+                                    >
                                         <item.icon/>
                                         <span className="side_nav_text">{item.name}</span>
-                                    </Link>
+                                    </button>
                                     <div className="sub_menu">
                                         <ul className="sub_menu_nav">
                                             {item.submenu.map((subItem, index) => {
                                                 return (
                                                     <li className="sub_menu_item" key={subItem.id}>
-                                                        <subItem.icon/>
-                                                        <Link to={subItem.url} className="sub_menu_link">{subItem.name}</Link>
+                                                        <NavLink  to={subItem.url} className="sub_menu_link">
+                                                            <subItem.icon/>
+                                                            <span className="sub_menu_text">{subItem.name}</span>
+                                                        </NavLink>
                                                     </li>
                                                 )
                                             })}
@@ -33,10 +37,13 @@ function Sidebar() {
                                 </li>
                             ) : (
                                 <li className="side_nav_item" key={item.id}>
-                                    <Link to={item.url} className="side_nav_link">
+                                    <NavLink
+                                        to={item.url}
+                                        className={({ isActive }) => isActive ? "side_nav_link active" : "side_nav_link"}
+                                    >
                                         <item.icon/>
                                         <span className="side_nav_text">{item.name}</span>
-                                    </Link>
+                                    </NavLink>
                                 </li>
                             )
                         })}
