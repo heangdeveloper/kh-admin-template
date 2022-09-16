@@ -1,15 +1,54 @@
 import { MdAccountCircle, MdSettings, MdSupport, MdHelpOutline, MdLogout, MdOutlineBackup, MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
-import { AiOutlineDashboard, AiOutlineUser, AiOutlineSetting, AiOutlineFile, AiOutlineInfoCircle, AiOutlineUsergroupAdd } from "react-icons/ai";
+import { 
+    AiOutlineDashboard,
+    AiOutlineUser,
+    AiOutlineFile,
+    AiOutlineInfoCircle,
+    AiOutlineUsergroupAdd,
+    AiOutlineMail,
+    AiOutlineShop
+} from "react-icons/ai";
 import { BiTerminal } from "react-icons/bi";
 import { FaCogs } from "react-icons/fa";
 
 export const menus = [
-    { id: 1, name: 'Dashboard', icon: AiOutlineDashboard, url: '/' },
+    { id: 1, name: 'Dashboard', icon: AiOutlineDashboard, url: '/dashboard' },
+    { id: 3, name: 'Email', icon: AiOutlineMail, url: '/email' },
     { 
         id: 2,
+        name: 'Ecommerce',
+        icon: AiOutlineShop,
+        url: '',
+        iconClosed: MdKeyboardArrowDown,
+        iconOpened: MdKeyboardArrowUp,
+        submenu: [
+            {
+                id: 1,
+                name: 'Products',
+                icon: AiOutlineUser,
+                url: ''
+            },
+            {
+                id: 2,
+                name: 'Orders',
+                icon: MdOutlineBackup,
+                url: ''
+            },
+            {
+                id: 3,
+                name: 'Customers',
+                icon: BiTerminal,
+                url: ''
+            },
+        ]
+    },
+    { 
+        id: 4,
         name: 'Authentication',
         icon: AiOutlineUsergroupAdd,
         url: '',
+        iconClosed: MdKeyboardArrowDown,
+        iconOpened: MdKeyboardArrowUp,
         submenu: [
             {
                 id: 1,
@@ -32,22 +71,24 @@ export const menus = [
         ]
     },
     {
-        id: 3,
+        id: 5,
         name: 'Advanced',
         icon: FaCogs,
         url: '#',
+        iconClosed: MdKeyboardArrowDown,
+        iconOpened: MdKeyboardArrowUp,
         submenu: [
             {
                 id: 1,
                 name: 'File manager',
                 icon: AiOutlineFile,
-                url: ''
+                url: '/filemanager'
             },
             {
                 id: 2,
                 name: 'Backups',
                 icon: MdOutlineBackup,
-                url: ''
+                url: '/backup'
             },
             {
                 id: 3,
@@ -63,7 +104,7 @@ export const menus = [
             },
         ]
     },
-    { id: 4, name: 'Logout', icon: MdLogout, url: '' }
+    { id: 6, name: 'Logout', icon: MdLogout, url: '' }
 ]
 
 export const profilemenus = [

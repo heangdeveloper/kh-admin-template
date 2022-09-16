@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Backup = () => {
+const FileManager = () => {
     return (
         <>
             
@@ -8,4 +8,4 @@ const Backup = () => {
     )
 }
 
-export default Backup
+export default FileManager

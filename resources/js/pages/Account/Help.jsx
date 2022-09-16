@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Backup = () => {
+const Help = () => {
     return (
         <>
-            
+        
         </>
     )
 }
 
-export default Backup
+export default Help

@@ -38,12 +38,12 @@ svg { @apply inline-block; }
 .left_sidebar .side_nav_link { @apply relative flex px-[30px] text-[.9375rem] text-slate-100 sm:min-h-[54px] sm:py-[15px] sm:px-0 lg:min-h-[0] lg:py-[10px] lg:px-[30px] lg:hover:before:content-[''] lg:hover:before:absolute lg:hover:before:top-0 lg:hover:before:left-0 lg:hover:before:w-[3px] lg:hover:before:h-[42px] lg:hover:before:bg-blue-600 lg:hover:bg-[#292929]; }
 .left_sidebar .side_nav_link.active { @apply lg:before:content-[''] lg:before:absolute lg:before:top-0 lg:before:left-0 lg:before:w-[3px] lg:before:h-[42px] lg:before:bg-blue-600 lg:bg-[#292929]; }
 .left_sidebar .side_nav_link span {@apply flex-1;}
-.left_sidebar .side_nav_link svg { @apply w-[70px] mr-0 text-[20px] text-center lg:w-[20px] lg:mr-[10px]; }
+.left_sidebar .side_nav_link svg { @apply w-[70px] text-[20px] text-center lg:w-[20px]; }
+.left_sidebar .side_nav_link .icon_expand { @apply hidden lg:block; }
 .left_sidebar button.side_nav_link { @apply w-full text-left; }
-.left_sidebar .side_nav_text { @apply align-middle md:hidden lg:block; }
+.left_sidebar .side_nav_text { @apply align-middle md:hidden lg:block lg:ml-[10px]; }
 
 /* left_sidebar sub_menu start */
-.left_sidebar .sub_menu {@apply hidden lg:block;}
 .left_sidebar .sub_menu .sub_menu_link {@apply relative block py-2 pr-[30px] pl-[55px] text-[14px] text-slate-300 lg:hover:bg-[#292929];}
 .left_sidebar .sub_menu .sub_menu_link svg {@apply lg:mr-[10px] lg:text-[15px];}
 
