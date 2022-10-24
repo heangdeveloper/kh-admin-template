@@ -1,21 +1,24 @@
 import React, { useState } from 'react'
 import { NavLink, Link } from "react-router-dom";
 import { menus } from '../local-json/data'
+import Logo from '../assets/img/logo.png'
 
 function Sidebar() {
     const [subMenu, setSubMenu] = useState(false);
+
+    const showSubMenu = () => setSubMenu(!subMenu)
 
     return (
         <>
             <aside className="left_sidebar">
                 <NavLink  to="" className="logo">
-
+                    
                 </NavLink>
                 <div className="left_sidebar_container">
                     <ul className="side_nav">
                         {menus.map(( item, index) => {
                             return item.submenu ? (
-                                <li className="side_nav_item" key={item.id}>
+                                <li className="side_nav_item" key={index}>
                                     <NavLink
                                         to={item.url}
                                         className={({ isActive }) => isActive ? "side_nav_link active" : "side_nav_link"}
@@ -29,7 +32,7 @@ function Sidebar() {
                                         <ul className="sub_menu_nav">
                                             {subMenu && item.submenu.map((subItem, index) => {
                                                 return (
-                                                    <li className="sub_menu_item" key={subItem.id}>
+                                                    <li className="sub_menu_item" key={index}>
                                                         <NavLink  to={subItem.url} className="sub_menu_link">
                                                             <subItem.icon/>
                                                             <span className="sub_menu_text">{subItem.name}</span>
@@ -41,7 +44,7 @@ function Sidebar() {
                                     </div>
                                 </li>
                             ) : (
-                                <li className="side_nav_item" key={item.id}>
+                                <li className="side_nav_item" key={index}>
                                     <NavLink
                                         to={item.url}
                                         className={({ isActive }) => isActive ? "side_nav_link active" : "side_nav_link"}

@@ -2,7 +2,7 @@ import React from 'react';
 import AccountUser from '../components/header/AccountUser';
 import ButtonToggle from '../components/header/ButtonToggle';
 import Notification from '../components/header/Notification';
-import FullScreen from '../components/header/FullScreen';
+import FullScreen from '../components/header/FScreen';
 
 function Header() {
     return (

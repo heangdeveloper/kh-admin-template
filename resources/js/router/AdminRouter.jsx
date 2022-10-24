@@ -2,6 +2,7 @@ import React from 'react'
 import { Routes, Route } from "react-router-dom";
 
 import Dashbard from '../pages/Dashbard';
+import Email from '../pages/Email';
 import User from '../pages/Auth/Index'
 import FileManager from '../pages/Advanced/FileManager';
 import Backup from '../pages/Advanced/Backup';
@@ -21,6 +22,7 @@ function AdminRouter() {
             <Layout>
                 <Routes>
                     <Route path="/dashboard" element={<Dashbard />} />
+                    <Route path="/email" element={<Email />} />
                     <Route path="/user" element={<User />} />
                     
                     <Route path="/filemanager" element={<FileManager />} />

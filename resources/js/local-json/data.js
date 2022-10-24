@@ -1,4 +1,13 @@
-import { MdAccountCircle, MdSettings, MdSupport, MdHelpOutline, MdLogout, MdOutlineBackup, MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
+import { 
+    MdAccountCircle,
+    MdSettings,
+    MdSupport,
+    MdHelpOutline,
+    MdLogout,
+    MdOutlineBackup,
+    MdKeyboardArrowUp,
+    MdKeyboardArrowDown 
+} from "react-icons/md";
 import { 
     AiOutlineDashboard,
     AiOutlineUser,
@@ -6,47 +15,25 @@ import {
     AiOutlineInfoCircle,
     AiOutlineUsergroupAdd,
     AiOutlineMail,
-    AiOutlineShop
+    AiOutlineShop,
+    AiOutlineCalendar,
 } from "react-icons/ai";
-import { BiTerminal } from "react-icons/bi";
+import { 
+    BiTerminal,
+    BiChat
+} from "react-icons/bi";
 import { FaCogs } from "react-icons/fa";
 
 export const menus = [
     { id: 1, name: 'Dashboard', icon: AiOutlineDashboard, url: '/dashboard' },
-    { id: 3, name: 'Email', icon: AiOutlineMail, url: '/email' },
+    { id: 2, name: 'Email', icon: AiOutlineMail, url: '/email' },
+    { id: 3, name: 'Calendar ', icon: AiOutlineCalendar, url: '/calendar' },
+    { id: 4, name: 'Chat', icon: BiChat, url: '/chat' },
     { 
-        id: 2,
-        name: 'Ecommerce',
-        icon: AiOutlineShop,
-        url: '',
-        iconClosed: MdKeyboardArrowDown,
-        iconOpened: MdKeyboardArrowUp,
-        submenu: [
-            {
-                id: 1,
-                name: 'Products',
-                icon: AiOutlineUser,
-                url: ''
-            },
-            {
-                id: 2,
-                name: 'Orders',
-                icon: MdOutlineBackup,
-                url: ''
-            },
-            {
-                id: 3,
-                name: 'Customers',
-                icon: BiTerminal,
-                url: ''
-            },
-        ]
-    },
-    { 
-        id: 4,
+        id: 6,
         name: 'Authentication',
         icon: AiOutlineUsergroupAdd,
-        url: '',
+        url: '/auth',
         iconClosed: MdKeyboardArrowDown,
         iconOpened: MdKeyboardArrowUp,
         submenu: [
@@ -71,10 +58,10 @@ export const menus = [
         ]
     },
     {
-        id: 5,
+        id: 7,
         name: 'Advanced',
         icon: FaCogs,
-        url: '#',
+        url: '/advanced',
         iconClosed: MdKeyboardArrowDown,
         iconOpened: MdKeyboardArrowUp,
         submenu: [
@@ -104,7 +91,7 @@ export const menus = [
             },
         ]
     },
-    { id: 6, name: 'Logout', icon: MdLogout, url: '' }
+    { id: 8, name: 'Logout', icon: MdLogout, url: '' }
 ]
 
 export const profilemenus = [
