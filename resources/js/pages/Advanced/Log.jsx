@@ -1,5 +1,5 @@
 import React from 'react'
-import PageTitle from '../../components/content/PageTitle'
+import PageTitle from '../../components/PageTitle'
 
 const Log = () => {
     return (

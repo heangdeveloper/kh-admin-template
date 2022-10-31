@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { NavLink, Link } from "react-router-dom";
-import { menus } from '../local-json/data'
+import { NavLink } from "react-router-dom";
+import { menus } from '../data/data'
 import Logo from '../assets/img/logo.png'
 
 function Sidebar() {
