@@ -28,7 +28,7 @@ const WithDraw = () => {
                                             <th>#</th>
                                             <th>UserName</th>
                                             <th>Name</th>
-                                            <th>Phon Number</th>
+                                            <th>Tel</th>
                                             <th>Amount</th>
                                             <th>Status</th>
                                             <th>Action</th>

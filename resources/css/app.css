@@ -70,7 +70,7 @@ input[type=number]{-moz-appearance:textfield;} /* Firefox */
 .content { @apply w-full; }
 
 .content .page_title_wrap .page_title{ @apply text-[18px] m-0 leading-[75px] overflow-hidden whitespace-nowrap text-ellipsis text-slate-100; }
-.card{@apply min-w-full h-auto my-5 p-[24px] rounded-[4px] bg-[#222222] shadow-3xl;}
+.card{@apply min-w-full h-auto my-3 p-[24px] rounded-[4px] bg-[#222222] shadow-3xl;}
 .tbl_scroll{@apply m-0 min-w-full overflow-auto;}
 .tbl{@apply w-full text-sm text-left text-gray-500;}
 .tbl thead{@apply text-[13px] text-gray-700 bg-gray-50;}
