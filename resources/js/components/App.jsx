@@ -9,11 +9,10 @@ import SearchPlayer from '../pages/Player/SearchPlayer'
 import TopUp from '../pages/Topup/TopUp'
 import WithDraw from '../pages/Withdraw/WithDraw'
 
-import User from '../pages/Auth/Index'
-import FileManager from '../pages/Advanced/FileManager';
-import Backup from '../pages/Advanced/Backup';
-import Log from '../pages/Advanced/Log';
-import Setting from '../pages/Advanced/Setting';
+import ListBank from '../pages/Bank/index'
+
+import ListUser from '../pages/User/Index'
+import UserCreate from '../pages/User/Create'
 
 import MyAccount from '../pages/Account/MyAccount'
 import About from '../pages/Account/About'
@@ -37,12 +36,10 @@ function App() {
                     <Route path="/topup" element={<TopUp />} />
                     <Route path="/withdraw" element={<WithDraw />} />
 
-                    <Route path="/user" element={<User />} />
-                    
-                    <Route path="/filemanager" element={<FileManager />} />
-                    <Route path="/backup" element={<Backup />} />
-                    <Route path="/log" element={<Log />} />
-                    <Route path="/setting" element={<Setting />} />
+                    <Route path="/bank" element={<ListBank />} />
+
+                    <Route path="/user" element={<ListUser />} />
+                    <Route path="/user/create" element={<UserCreate />} />
 
                     <Route path="/my-account" element={<MyAccount />} />
                     <Route path="/acout" element={<About />} />

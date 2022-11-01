@@ -1,4 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { AiOutlineSearch, AiOutlinePlus } from "react-icons/ai";
 
 const Index = () => {
     return (
@@ -6,6 +9,14 @@ const Index = () => {
             <div className="content_container">
                 <div className="content_header">
                     <div className="card">
+                        <div className="card_header">
+                            <div className="btn_wrap">
+                                <Link to="/user/create" className="btn btn_save">
+                                    <AiOutlinePlus/>
+                                    <span>Add User</span>
+                                </Link>
+                            </div>
+                        </div>
                         <div className="card_body">
                             <div className="tbl_filter">
                                 <div className=""></div>
@@ -25,8 +36,8 @@ const Index = () => {
                                             <th>#</th>
                                             <th>UserName</th>
                                             <th>Name</th>
-                                            <th>Phon Number</th>
-                                            <th>Amount</th>
+                                            <th>Tel</th>
+                                            <th>Line ID</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>

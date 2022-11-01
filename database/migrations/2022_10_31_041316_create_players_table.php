@@ -15,12 +15,21 @@ return new class extends Migration
     {
         Schema::create('players', function (Blueprint $table) {
             $table->id();
-            $table->integer('username');
+            $table->integer('refer_id')->nullable();
+            $table->string('username');
+            $table->string('password');
+            $table->string('plain_password');
+            $table->string('email')->nullable();
             $table->string('name');
-            $table->string('tel');
-            $table->string('bname');
-            $table->string('baccount');
-            $table->enum('status', ['disable', 'enable']);
+            $table->string('surname')->nullable();
+            $table->string('phone');
+            $table->string('line_id')->nullable();
+            $table->integer('bank_type')->nullable();
+            $table->string('bank_number')->nullable();
+            $table->double('balance', 8, 2)->default(0);
+            $table->string('register_ip')->nullable();
+            $table->string('avatar', 2048)->default('default.png');
+            $table->enum('status', ['active', 'banned'])->default('active');
             $table->timestamps();
         });
     }

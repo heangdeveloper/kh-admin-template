@@ -1,6 +1,6 @@
 import React from 'react'
 
-const index = () => {
+const Create = () => {
     return (
         <>
             
@@ -8,4 +8,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Create

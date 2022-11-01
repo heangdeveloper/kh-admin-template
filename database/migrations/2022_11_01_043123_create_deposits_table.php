@@ -13,10 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('banks', function (Blueprint $table) {
+        Schema::create('deposits', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('number');
+            $table->integer('user_id');
+            $table->integer('player_id');
+            $table->double('amount', 8, 2);
+            $table->double('before_balance', 8, 2);
+            $table->double('after_balance', 8, 2);
+            $table->integer('bank_id');
+            $table->string('ip_address');
+            $table->text('remark');
             $table->timestamps();
         });
     }
@@ -28,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('banks');
+        Schema::dropIfExists('deposits');
     }
 };
