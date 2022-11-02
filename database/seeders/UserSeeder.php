@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use App\Models\Role;
 use App\Models\User;
 
 class UserSeeder extends Seeder
@@ -17,9 +16,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $adminRole = Role::where('name', 'admin')->first();
-        $staffRole = Role::where('name', 'staff')->first();
-
         User::truncate();
 
         $admin = User::create([
@@ -27,7 +23,8 @@ class UserSeeder extends Seeder
             'username' => 'admin',
             'email' => 'admin@admin.com',
             'password' => Hash::make('password'),
-            'plain_password' => 'password'
+            'plain_password' => 'password',
+            'role_id' => '1',
         ]);
 
         $staff = User::create([
@@ -35,10 +32,8 @@ class UserSeeder extends Seeder
             'username' => 'staff',
             'email' => 'staff@staff.com',
             'password' => Hash::make('password'),
-            'plain_password' => 'password'
+            'plain_password' => 'password',
+            'role_id' => '2',
         ]);
-
-        $admin->roles()->attach($adminRole);
-        $staff->roles()->attach($staffRole);
     }
 }

@@ -23,8 +23,4 @@ class Player extends Model
         'avatar',
         'status'
     ];
-
-    public function roles() {
-        return $this->belongsToMany('App\Models\Role');
-    }
 }

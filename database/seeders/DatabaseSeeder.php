@@ -22,7 +22,6 @@ class DatabaseSeeder extends Seeder
         // ]);
         $this->call([
             UserSeeder::class,
-            PlayerSeeder::class,
             RoleSeeder::class,
         ]);
     }

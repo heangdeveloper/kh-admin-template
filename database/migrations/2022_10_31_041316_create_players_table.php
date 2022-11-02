@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('players', function (Blueprint $table) {
             $table->id();
+            $table->integer('role_id');
             $table->integer('refer_id')->nullable();
             $table->string('username');
             $table->string('password');
