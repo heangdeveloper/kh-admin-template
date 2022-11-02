@@ -11,7 +11,8 @@ import {
     AiOutlineInfoCircle,
     AiOutlineUsergroupAdd,
     AiOutlineMoneyCollect,
-    AiOutlineBank
+    AiOutlineBank,
+    AiOutlineFile
 } from "react-icons/ai";
 
 export const menus = [
@@ -21,6 +22,7 @@ export const menus = [
     { id: 4, name: 'Deposit', icon: MdAttachMoney, url: '/deposit' },
     { id: 5, name: 'Bank', icon: AiOutlineBank, url: '/bank' },
     { id: 6, name: 'User', icon: AiOutlineUsergroupAdd, url: '/user' },
+    { id: 7, name: 'Report', icon: AiOutlineFile, url: '/report' },
 ]
 
 export const profilemenus = [

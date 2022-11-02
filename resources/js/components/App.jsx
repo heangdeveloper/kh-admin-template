@@ -34,7 +34,7 @@ function App() {
                     <Route path="/dashboard" element={<Dashbard />} />
 
                     <Route path="/player" element={<ListPlayer />} />
-                    <Route path="/player/create" element={<CreatePlayer />} />
+                    <Route path="/create_player" element={<CreatePlayer />} />
                     <Route path="/player/:username/edit" element={<EditPlayer />} />
                     <Route path="/player/:username" element={<ShowPlayer />} />
 

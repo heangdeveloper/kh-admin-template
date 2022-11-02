@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('surname')->nullable();
             $table->string('phone');
             $table->string('line_id')->nullable();
-            $table->integer('bank_id')->nullable();
+            $table->integer('bank_name')->nullable();
             $table->string('bank_number')->nullable();
             $table->double('balance', 8, 2)->default(0);
             $table->string('register_ip')->nullable();

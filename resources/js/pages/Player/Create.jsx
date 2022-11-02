@@ -88,7 +88,7 @@ const AddPlayer = () => {
                             <form autoComplete="off" onSubmit={handleSave}>
                                 <div className="frm_wrap">
                                     <div className="hidden">{username}</div>
-                                    <div className="frm_group">
+                                    <div className="frm_group required">
                                         <label htmlFor="name">Real Name</label>
                                         <input type="text" placeholder="Enter Your Real Name" id="name" onChange={(e) => {setName(e.target.value)}} value={name}/>
                                         <p className="help_block">Note: Real Name must be the same of name from bank.</p>
@@ -98,22 +98,27 @@ const AddPlayer = () => {
                                         <input type="text" placeholder="Enter Phone Number" id="tel" onChange={(e) => {setTel(e.target.value)}} value={tel}/>
                                         <p className="help_block">This block is a real phone number of player.</p>
                                     </div>
-                                    {/* <div className="frm_group">
-                                        <label htmlFor="tel">Set Score</label>
-                                        <input type="text" placeholder="Enter Phone Number" id="tel" onChange={(e) => {setScore(e.target.value)}} value={score}/>
-                                        <p className="help_block">Max value:</p>
-                                    </div> */}
                                     <div className="frm_group">
+                                        <label htmlFor="email">Email</label>
+                                        <input type="email" placeholder="Enter Email" id="email"/>
+                                        <p className="help_block">This is email player can be null.</p>
+                                    </div>
+                                    <div className="frm_group">
+                                        <label htmlFor="bname">Line ID</label>
+                                        <input type="text" placeholder="Enter Line ID" id="bname"/>
+                                        <p className="help_block">This is line id player can be null.</p>
+                                    </div>
+                                    <div className="frm_group required">
                                         <label htmlFor="bname">Bank Name</label>
                                         <input type="text" placeholder="Enter Bank Name" id="bname" onChange={(e) => {setBname(e.target.value)}} value={bname}/>
                                         <p className="help_block">This is a bank name of player eg: ABA, Acleda.</p>
                                     </div>
-                                    <div className="frm_group">
+                                    <div className="frm_group required">
                                         <label htmlFor="baccount">Bank Account</label>
                                         <input type="number" placeholder="Enter Bank Account" id="baccount" onChange={(e) => {setBaccount(e.target.value)}} value={baccount}/>
                                         <p className="help_block">This is a real bank account of player.</p>
                                     </div>
-                                    <div className="frm_group">
+                                    <div className="frm_group required">
                                         <label htmlFor="password">Password</label>
                                         <input type="password" placeholder="Enter Password" id="password" onChange={(e) => {setPassword(e.target.value)}} value={password}/>
                                     </div>
