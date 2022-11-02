@@ -18,8 +18,8 @@ svg { @apply inline-block; }
 input::-webkit-outer-spin-button, input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;} /* Chrome, Safari, Edge, Opera */
 input[type=number]{-moz-appearance:textfield;} /* Firefox */
 
-.header { @apply fixed top-0 right-0 left-0 z-[1000] min-h-[70px] bg-white dark:bg-[#1f1f1f] md:left-[70px] lg:left-[260px]; }
-.header_container { @apply px-3; }
+.header{@apply fixed top-0 right-0 left-0 z-[1000] min-h-[70px] px-3 bg-white dark:bg-[#1f1f1f] md:left-[70px] lg:left-[260px]; }
+.header_container {@apply w-full min-h-[70px] px-3;}
 
 .btn_toggle_menu { @apply block relative bottom-0 z-[1] w-[60px] h-[70px] bg-transparent -ml-[10px] text-2xl text-slate-100 leading-[70px] float-left md:hidden; }
 
@@ -68,9 +68,11 @@ input[type=number]{-moz-appearance:textfield;} /* Firefox */
 /* content start */
 .content_page { @apply min-h-screen ml-[0px] pt-[70px] px-3 pb-[62px] md:ml-[70px] lg:ml-[260px] overflow-hidden; }
 .content { @apply w-full; }
+.content_container{@apply px-3;}
+.content_header{@apply flex justify-between items-center;}
 
 .content .page_title_wrap .page_title{ @apply text-[18px] m-0 leading-[75px] overflow-hidden whitespace-nowrap text-ellipsis text-slate-100; }
-.card{@apply min-w-full h-auto my-3 p-[24px] rounded-[4px] bg-[#222222] shadow-3xl;}
+.card{@apply min-w-full h-auto p-[24px] rounded-[4px] bg-[#222222] shadow-3xl;}
 .tbl_scroll{@apply m-0 min-w-full overflow-auto;}
 .tbl{@apply w-full text-sm text-left text-gray-500;}
 .tbl thead{@apply text-[13px] text-gray-700 bg-gray-50;}
@@ -85,7 +87,6 @@ input[type=number]{-moz-appearance:textfield;} /* Firefox */
 .tbl tbody tr td:first-child{@apply border-l-0;}
 .tbl tbody tr td:last-child{@apply border-r-0;}
 
-.btn_wrap{@apply mb-3;}
 .btn_wrap .btn{@apply relative inline-block h-[32px] py-0 px-[10px] text-white border border-[#292929] leading-[32px] rounded-[4px] text-center text-[13px] align-middle;}
 .btn_wrap .btn svg{@apply mr-[4px];}
 .btn_edit{@apply text-blue-400 text-lg;}
@@ -97,13 +98,14 @@ input[type=number]{-moz-appearance:textfield;} /* Firefox */
 .search_control input{@apply w-full h-[32px] m-0 py-2 pl-[12px] pr-[34px] text-[13px] font-normal text-white leading-[32px] border-none rounded-[4px] outline-none bg-[#292929];}
 .search_control .search_action{@apply absolute top-0 right-0;}
 .search_control .search_action .btn_search{@apply inline-block w-[34px] h-[32px] text-blue-700 text-[20px] align-middle;}
-.frm_wrap{@apply flex justify-start items-center flex-wrap gap-[20px] mb-3;}
-.frm_group{@apply inline-block;}
+.frm_wrap{@apply flex justify-start flex-wrap flex-col gap-[20px] my-3 sm:flex-row;}
+.frm_group{@apply inline-block w-full sm:w-[calc(50%-10px)];}
 .frm_group label{@apply inline-block w-[150px] p-0 mb-2 text-[13px] font-medium text-white leading-[32px];}
 .frm_group input, .frm_group select, .frm_group textarea{@apply w-full h-[32px] m-0 py-[2px] px-[10px] text-[13px] font-normal text-white leading-[32px] border-0 rounded-[4px] bg-[#292929] outline-none;}
 .frm_group .help_block{@apply my-[4px] text-[12px] text-slate-300 italic;}
+.frm_group.required>label:not(:empty){@apply after:content-['*'] after:ml-0.5 after:text-red-500;}
 
-
+.breadcrumb{@apply flex flex-wrap list-none text-white;}
 
 
 

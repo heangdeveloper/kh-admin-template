@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { AiOutlineEdit, AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineEdit, AiOutlineSearch, AiOutlinePlus } from "react-icons/ai";
 
 function Dashbard() {
     const [players, setPlayers] = useState([])
@@ -27,7 +27,10 @@ function Dashbard() {
                     <div className="card">
                         <div className="card_header">
                             <div className="btn_wrap">
-                                <Link to="/add_player" className="btn">Add Player</Link>
+                                <Link to="/player/create" className="btn btn_save">
+                                    <AiOutlinePlus/>
+                                    <span>Add Player</span>
+                                </Link>
                             </div>
                         </div>
                         <div className="card_body">
@@ -50,15 +53,18 @@ function Dashbard() {
                                             <th>UserName</th>
                                             <th>Name</th>
                                             <th>Tel</th>
+                                            <th>Bank Account</th>
+                                            <th>Balance</th>
                                             <th>Description</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {players && players.length > 0 && players.map((player, index) => (
+                                        {/* {players && players.length > 0 && players.map((player, index) => (
                                             <tr key={index}>
                                                 <td>{player.Rownum}</td>
-                                                <td><Link to={`/search_player/${player.Account}`}>{player.Account}</Link></td>
+                                                <td><Link to={`/player/${player.Account}`}>{player.Account}</Link></td>
                                                 <td>{player.Name}</td>
                                                 <td>{player.Tel}</td>
                                                 <td>{player.Redme}</td>
@@ -66,7 +72,7 @@ function Dashbard() {
                                                     <Link to="" className="btn_edit"><AiOutlineEdit/></Link>
                                                 </td>
                                             </tr>
-                                        ))}
+                                        ))} */}
                                     </tbody>
                                 </table>
                             </div>

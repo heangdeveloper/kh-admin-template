@@ -2,17 +2,20 @@ import React from 'react'
 import { Routes, Route } from "react-router-dom";
 
 import Dashbard from '../pages/Dashbard';
-import Player from '../pages/Player/Player';
-import AddPlayer from '../pages/Player/AddPlayer'
-import SearchPlayer from '../pages/Player/SearchPlayer'
 
-import TopUp from '../pages/Topup/TopUp'
+import ListPlayer from '../pages/Player/index';
+import CreatePlayer from '../pages/Player/Create'
+import EditPlayer from '../pages/Player/Edit'
+import ShowPlayer from '../pages/Player/Show'
+
+import Deposit from '../pages/Deposit/Deposit'
 import WithDraw from '../pages/Withdraw/WithDraw'
 
 import ListBank from '../pages/Bank/index'
+import CreateBank from '../pages/Bank/Create';
 
 import ListUser from '../pages/User/Index'
-import UserCreate from '../pages/User/Create'
+import CreateUser from '../pages/User/Create'
 
 import MyAccount from '../pages/Account/MyAccount'
 import About from '../pages/Account/About'
@@ -29,17 +32,20 @@ function App() {
             <Layout>
                 <Routes>
                     <Route path="/dashboard" element={<Dashbard />} />
-                    <Route path="/player" element={<Player />} />
-                    <Route path="/add_player" element={<AddPlayer />} />
-                    <Route path="/search_player/:username" element={<SearchPlayer />} />
 
-                    <Route path="/topup" element={<TopUp />} />
+                    <Route path="/player" element={<ListPlayer />} />
+                    <Route path="/player/create" element={<CreatePlayer />} />
+                    <Route path="/player/:username/edit" element={<EditPlayer />} />
+                    <Route path="/player/:username" element={<ShowPlayer />} />
+
+                    <Route path="/deposit" element={<Deposit />} />
                     <Route path="/withdraw" element={<WithDraw />} />
 
                     <Route path="/bank" element={<ListBank />} />
+                    <Route path="/create_bank" element={<CreateBank />} />
 
                     <Route path="/user" element={<ListUser />} />
-                    <Route path="/user/create" element={<UserCreate />} />
+                    <Route path="/create_user" element={<CreateUser />} />
 
                     <Route path="/my-account" element={<MyAccount />} />
                     <Route path="/acout" element={<About />} />

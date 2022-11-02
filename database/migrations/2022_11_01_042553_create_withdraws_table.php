@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('bank_id');
             $table->double('amount', 8, 2);
             $table->string('ip_address');
+            $table->enum('created_by', ['system', 'staff']);
             $table->text('remark');
             $table->timestamps();
         });

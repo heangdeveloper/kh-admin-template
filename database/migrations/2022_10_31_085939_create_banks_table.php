@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('number');
+            $table->string('qr')->nullable();
+            $table->enum('status', ['active', 'unactive'])->default('active');
             $table->timestamps();
         });
     }

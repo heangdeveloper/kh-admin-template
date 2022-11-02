@@ -1,26 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { AiOutlineEdit, AiOutlineSearch } from "react-icons/ai";
+import PageTitle from '../../components/PageTitle'
 
-const TopUp = () => {
+const Deposit = () => {
     return (
         <>
             <div className="content_container">
                 <div className="content_header">
+                    <PageTitle title="Deposit"/>
+                </div>
+                <div className="content_body">
                     <div className="card">
                         <div className="card_body">
-                            <div className="tbl_filter">
-                                <div className=""></div>
-                                <div className="search_control">
-                                    <label>
-                                        <input type="text" placeholder="Search here..."/>
-                                        <div className="search_action">
-                                            <button className="btn_search"><AiOutlineSearch/></button>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
                             <div className="tbl_scroll">
                                 <table className="tbl">
                                     <thead>
@@ -29,9 +21,12 @@ const TopUp = () => {
                                             <th>UserName</th>
                                             <th>Name</th>
                                             <th>Tel</th>
+                                            <th>Bank Name</th>
                                             <th>Credit</th>
                                             <th>Amount</th>
-                                            <th>Status</th>
+                                            <th>Create By</th>
+                                            <th>Staff Name</th>
+                                            <th>Remark</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -39,14 +34,6 @@ const TopUp = () => {
                                         
                                     </tbody>
                                 </table>
-                            </div>
-                            <div className="">
-                                <div>
-
-                                </div>
-                                <div className="">
-
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -56,4 +43,4 @@ const TopUp = () => {
     )
 }
 
-export default TopUp
+export default Deposit

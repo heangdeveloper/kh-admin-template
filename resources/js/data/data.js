@@ -3,8 +3,7 @@ import {
     MdSupport,
     MdHelpOutline,
     MdLogout,
-    MdAttachMoney,
-    MdCreditScore
+    MdAttachMoney
 } from "react-icons/md";
 import { 
     AiOutlineDashboard,
@@ -19,11 +18,9 @@ export const menus = [
     { id: 1, name: 'Dashboard', icon: AiOutlineDashboard, url: '/dashboard' },
     { id: 2, name: 'Player', icon: AiOutlineUser, url: '/player' },
     { id: 3, name: 'WithDraw ', icon: AiOutlineMoneyCollect, url: '/withdraw' },
-    { id: 4, name: 'Top Up', icon: MdAttachMoney, url: '/topup' },
-    { id: 5, name: 'Score', icon: MdCreditScore, url: '/score' },
+    { id: 4, name: 'Deposit', icon: MdAttachMoney, url: '/deposit' },
     { id: 5, name: 'Bank', icon: AiOutlineBank, url: '/bank' },
     { id: 6, name: 'User', icon: AiOutlineUsergroupAdd, url: '/user' },
-    { id: 8, name: 'Logout', icon: MdLogout, url: '' }
 ]
 
 export const profilemenus = [

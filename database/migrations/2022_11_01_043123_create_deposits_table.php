@@ -17,11 +17,12 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('player_id');
+            $table->integer('bank_id');
             $table->double('amount', 8, 2);
             $table->double('before_balance', 8, 2);
             $table->double('after_balance', 8, 2);
-            $table->integer('bank_id');
             $table->string('ip_address');
+            $table->enum('created_by', ['system', 'staff']);
             $table->text('remark');
             $table->timestamps();
         });
