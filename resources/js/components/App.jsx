@@ -13,6 +13,7 @@ import WithDraw from '../pages/Withdraw/WithDraw'
 
 import ListBank from '../pages/Bank/index'
 import CreateBank from '../pages/Bank/Create';
+import EditBank from '../pages/Bank/Edit'
 
 import ListUser from '../pages/User/Index'
 import CreateUser from '../pages/User/Create'
@@ -43,6 +44,7 @@ function App() {
 
                     <Route path="/bank" element={<ListBank />} />
                     <Route path="/create_bank" element={<CreateBank />} />
+                    <Route path="/bank/edit/:id" element={<EditBank />} />
 
                     <Route path="/user" element={<ListUser />} />
                     <Route path="/create_user" element={<CreateUser />} />

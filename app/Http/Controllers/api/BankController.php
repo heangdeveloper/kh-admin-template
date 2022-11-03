@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Bank;
 
 class BankController extends Controller
 {
@@ -14,7 +15,8 @@ class BankController extends Controller
      */
     public function index()
     {
-        //
+        $bank = Bank::all();
+        return response()->json($bank);
     }
 
     /**
@@ -35,7 +37,13 @@ class BankController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $bank = Bank::create([
+            'name' => $request->bname,
+            'number' => $request->baccount,
+            'status' => 'active'
+        ]);
+
+        return response()->json($bank);
     }
 
     /**
@@ -57,7 +65,9 @@ class BankController extends Controller
      */
     public function edit($id)
     {
-        //
+        $bank = Bank::where('id', $id)->first();
+
+        return response()->json($bank);
     }
 
     /**
@@ -69,7 +79,13 @@ class BankController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $bank = Bank::find($id);
+        $bank->name = $request->bname;
+        $bank->number = $request->baccount;
+        $bank->status = $request->status;
+        $bank->save();
+
+        return response()->json($bank);
     }
 
     /**
@@ -80,6 +96,9 @@ class BankController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $bank = Bank::find($id);
+        $bank->delete();
+
+        return response()->json($bank);
     }
 }

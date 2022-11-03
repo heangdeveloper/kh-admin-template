@@ -23,3 +23,9 @@ Route::get('/list_player', [PlayerController::class, 'getPlayerList']);
 Route::get('/user_random', [PlayerController::class, 'getRandomUser']);
 Route::post('/add_player', [PlayerController::class, 'addPlayer']);
 Route::get('/get_user_info/{username}', [PlayerController::class, 'getUserInfo']);
+
+Route::group(['as' => 'api.', 'namespace' => 'App\Http\Controllers\api'], function() {
+    Route::resources([
+        'bank' => BankController::class,
+    ]);
+});

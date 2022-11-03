@@ -104,6 +104,7 @@ input[type=number]{-moz-appearance:textfield;} /* Firefox */
 .frm_group input, .frm_group select, .frm_group textarea{@apply w-full h-[32px] m-0 py-[2px] px-[10px] text-[13px] font-normal text-white leading-[32px] border-0 rounded-[4px] bg-[#292929] outline-none;}
 .frm_group .help_block{@apply my-[4px] text-[12px] text-slate-300 italic;}
 .frm_group.required>label:not(:empty){@apply after:content-['*'] after:ml-0.5 after:text-red-500;}
+.frm_group .msg_error{@apply block w-full py-[4px] text-[12px] text-red-500 italic;}
 
 .breadcrumb{@apply flex flex-wrap list-none text-white;}
 

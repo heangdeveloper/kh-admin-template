@@ -1,21 +1,56 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import PageTitle from '../../components/PageTitle'
 import axios from 'axios'
 import { MdOutlineKeyboardBackspace, MdOutlineCheck } from "react-icons/md";
 import 'react-toastify/dist/ReactToastify.css';
-import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2'
 
-const Create = () => {
-    const { register, handleSubmit, formState: {errors} } = useForm();
-    const [bname, setBname] = useState('')
-    const [baccount, setBaccount] = useState('')
+const Edit = () => {
+    const [bname, setBname] = useState()
+    const [baccount, setBaccount] = useState()
+    const [status, setStatus] = useState()
+    const navigate = useNavigate();
+
+    const { id } = useParams()
+
+    const fetchBank = async () => {
+        await axios.get(`http://127.0.0.1:8000/api/bank/${id}/edit`).then(({data}) => {
+            //console.log(data)
+            const { name, number, status } = data
+            setBname(name)
+            setBaccount(number)
+            setStatus(status)
+        }).catch (({err}) => {
+            console.log(err)
+        })
+    }
+
+    useEffect(() => {
+        fetchBank()
+    }, [])
+
+    const updateBank = async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData()
+        formData.append('_method', 'PATCH')
+        formData.append('bname', bname)
+        formData.append('baccount', baccount)
+        formData.append('status', status)
+
+        axios.post(`http://127.0.0.1:8000/api/bank/${id}`, formData).then(({data}) => {
+            navigate("/bank")
+        }).catch(({err}) => {
+            console.log(err)
+        })
+    }
+
     return (
         <>
             <div className="content_container">
                 <div className="content_header">
-                    <PageTitle title="Add Bank"/>
+                    <PageTitle title="Edit Bank"/>
                 </div>
                 <div className="content_body">
                     <div className="card">
@@ -28,46 +63,30 @@ const Create = () => {
                             </div>
                         </div>
                         <div className="card_body">
-                            <form autoComplete="off" onSubmit={handleSubmit(() => {
-                                const formData = new FormData()
-
-                                formData.append('bname', bname)
-                                formData.append('baccount', baccount)
-
-                                axios.post(`http://127.0.0.1:8000/api/bank`, formData).then(({data}) => {
-                                    //console.log(data)
-                                    Swal.fire({
-                                        title: 'Success!',
-                                        text: "Bank has been inserted!",
-                                        icon: "success",
-                                        timer: '1500'
-                                    })
-                                    setBname('')
-                                    setBaccount('')
-                                }).catch(({err}) => {
-                                    console.log(err)
-                                })
-                            })}>
+                            <form autoComplete="off" onSubmit={updateBank}>
                                 <div className="frm_wrap">
                                     <div className="frm_group required">
                                         <label htmlFor="name">Bank Name</label>
                                         <input
-                                            {...register("name", { required: 'Bank Name is required.' })}
                                             type="text" placeholder="Enter Bank Name" id="name"
                                             value={bname}
                                             onChange={(e) => {setBname(e.target.value)}}
                                         />
-                                        <span className="msg_error">{errors.name?.message}</span>
                                     </div>
                                     <div className="frm_group required">
                                         <label htmlFor="baccount">Bank Account</label>
                                         <input
-                                            {...register("account", { required: 'Bank Account is required.' })}
                                             type="text" placeholder="Enter Bank Account" id="baccount"
                                             value={baccount}
                                             onChange={(e) => {setBaccount(e.target.value)}}
                                         />
-                                        <span className="msg_error">{errors.account?.message}</span>
+                                    </div>
+                                    <div className="frm_group required">
+                                        <label htmlFor="baccount">Status</label>
+                                        <select value={status} onChange={(e) => {setStatus(e.target.value)}}>
+                                            <option value="active">Active</option>
+                                            <option value="unactive">Unactive</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div className="btn_wrap">
@@ -85,4 +104,4 @@ const Create = () => {
     )
 }
 
-export default Create
+export default Edit
