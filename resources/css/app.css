@@ -76,11 +76,11 @@ input[type=number]{-moz-appearance:textfield;} /* Firefox */
 .tbl_scroll{@apply m-0 min-w-full overflow-auto;}
 .tbl{@apply w-full text-sm text-left text-gray-500;}
 .tbl thead{@apply text-[13px] text-gray-700 bg-gray-50;}
-.tbl thead tr th{@apply h-[38px] border border-[#3f3f3f] bg-[#292929] px-3 text-white;}
+.tbl thead tr th{@apply h-[38px] border border-[#3f3f3f] bg-[#292929] px-3 text-white whitespace-nowrap;}
 .tbl thead tr th:first-child{@apply border-l-0;}
 .tbl thead tr th:last-child{@apply border-r-0;}
 .tbl tbody tr{@apply bg-[#222222] border-b;}
-.tbl tbody tr td{@apply h-[38px] border border-[#3f3f3f] px-3 text-white font-normal opacity-[0.7] whitespace-nowrap;}
+.tbl tbody tr td{@apply h-[38px] border border-[#3f3f3f] px-3 text-gray-300 font-normal whitespace-nowrap;}
 .tbl tbody tr td a{@apply text-blue-400;}
 .tbl tbody tr:hover td{@apply bg-[#303030];}
 .tbl tbody tr:hover td a{@apply underline;}
@@ -89,15 +89,16 @@ input[type=number]{-moz-appearance:textfield;} /* Firefox */
 
 .btn_wrap .btn{@apply relative inline-block h-[32px] py-0 px-[10px] text-white border border-[#292929] leading-[32px] rounded-[4px] text-center text-[13px] align-middle;}
 .btn_wrap .btn svg{@apply mr-[4px];}
-.btn_edit{@apply text-blue-400 text-lg;}
 .btn_save{@apply bg-green-500;}
 .btn_back{@apply bg-blue-500;}
 
-.tbl_filter{@apply flex justify-between items-center mb-3;}
-.search_control label{@apply relative block;}
-.search_control input{@apply w-full h-[32px] m-0 py-2 pl-[12px] pr-[34px] text-[13px] font-normal text-white leading-[32px] border-none rounded-[4px] outline-none bg-[#292929];}
-.search_control .search_action{@apply absolute top-0 right-0;}
-.search_control .search_action .btn_search{@apply inline-block w-[34px] h-[32px] text-blue-700 text-[20px] align-middle;}
+.btn_action{@apply space-x-2;}
+.btn_action .btn{@apply relative inline-block h-[25px] py-0 px-[10px] text-white border border-[#292929] leading-[25px] no-underline rounded-[4px] text-center text-[11px] align-middle;}
+.btn_action .btn svg{@apply mr-[2px];}
+.btn_action .btn_edit{@apply bg-blue-500;}
+.btn_action .btn_delete{@apply bg-red-500;}
+
+
 .frm_wrap{@apply flex justify-start flex-wrap flex-col gap-[20px] my-3 sm:flex-row;}
 .frm_group{@apply inline-block w-full sm:w-[calc(50%-10px)];}
 .frm_group label{@apply inline-block w-[150px] p-0 mb-2 text-[13px] font-medium text-white leading-[32px];}
@@ -106,12 +107,25 @@ input[type=number]{-moz-appearance:textfield;} /* Firefox */
 .frm_group.required>label:not(:empty){@apply after:content-['*'] after:ml-0.5 after:text-red-500;}
 .frm_group .msg_error{@apply block w-full py-[4px] text-[12px] text-red-500 italic;}
 
-.breadcrumb{@apply flex flex-wrap list-none text-white;}
+.badge{@apply inline-block py-[5px] px-[10px] text-[10px] font-bold text-center leading-none whitespace-nowrap align-baseline rounded-[4px];}
+.badge_primary{@apply text-white bg-blue-500;}
+.badge_danger{@apply text-white bg-red-500;}
+.badge_success{@apply text-white bg-green-500;}
+.badge_warning{@apply text-white bg-yellow-500;}
 
 
+.tbl_filter{@apply flex justify-between items-center flex-col flex-wrap gap-3 my-3 sm:flex-row sm:gap-0;}
+.search_control label{@apply relative block;}
+.search_control input{@apply w-full h-[32px] m-0 py-2 pl-[12px] pr-[34px] text-[13px] font-normal text-white leading-[32px] border-none rounded-[4px] outline-none bg-[#292929];}
+.search_control .search_action{@apply absolute top-0 right-0;}
+.search_control .search_action .btn_search{@apply inline-block w-[34px] h-[32px] text-blue-700 text-[20px] align-middle;}
 
-
-
+.datatable_bottom{@apply flex justify-between items-center flex-col flex-wrap gap-3 my-3 sm:flex-row sm:gap-0;;}
+.datatable_bottom .datatable_info p{@apply text-white italic;}
+.datatable_bottom .datatable_paginate .pagination{@apply flex pl-0 list-none;}
+.datatable_bottom .pagination .page_item.disabled .page_link{@apply pointer-events-none text-gray-300 bg-[#222];}
+.datatable_bottom .pagination .page_item .page_link{@apply block py-[6px] px-[12px] text-[14px] border-0 rounded-[4px] outline-0;}
+.datatable_bottom .pagination .page_item.active .page_link{@apply bg-[#333] text-white font-medium;}
 
 
 

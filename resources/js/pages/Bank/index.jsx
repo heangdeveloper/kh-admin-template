@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import { AiOutlinePlus, AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
+import { AiOutlinePlus, AiOutlineSearch } from "react-icons/ai";
 import PageTitle from '../../components/PageTitle'
 import Swal from 'sweetalert2'
+import DataTable from '../../components/datatable/DataTable'
 
 const index = () => {
     const [banks, setBanks] = useState()
@@ -89,10 +90,14 @@ const index = () => {
                                                         <td>{number++}</td>
                                                         <td>{row.name}</td>
                                                         <td>{row.number}</td>
-                                                        <td>{row.status ? <span className="badge badge_primary">Active</span> : <span className="badge badge_danger">Unactive</span>}</td>
                                                         <td>
-                                                            <Link to={`/bank/edit/${row.id}`} className="btn_edit"><AiOutlineEdit/></Link>
-                                                            <button type="button" onClick={() => handleDelete(row.id)} className="btn_delete"><AiOutlineDelete/></button>
+                                                            {row.status === 'active' ? <span className="badge badge_primary">Active</span> : <span className="badge badge_danger">Unactive</span>}
+                                                        </td>
+                                                        <td>
+                                                            <div className="btn_action">
+                                                                <Link to={`/bank/edit/${row.id}`} className="btn btn_edit">Edit</Link>
+                                                                <button type="button" onClick={() => handleDelete(row.id)} className="btn btn_delete">Delete</button>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                 ))
@@ -100,6 +105,9 @@ const index = () => {
                                         }
                                     </tbody>
                                 </table>
+                            </div>
+                            <div>
+
                             </div>
                         </div>
                     </div>
