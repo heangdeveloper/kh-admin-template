@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import { AiOutlinePlus, AiOutlineSearch } from "react-icons/ai";
 import PageTitle from '../../components/PageTitle'
 import Swal from 'sweetalert2'
-import DataTable from '../../components/datatable/DataTable'
 
 const index = () => {
     const [banks, setBanks] = useState()

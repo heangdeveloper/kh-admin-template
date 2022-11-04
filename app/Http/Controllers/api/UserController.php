@@ -4,6 +4,9 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -14,7 +17,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $user = DB::table('users')
+            ->join('roles', 'users.role_id', '=', 'roles.id')
+            ->select('users.*', 'roles.name AS role_name')
+            ->get();
+
+        return response()->json($user);
     }
 
     /**
@@ -35,7 +43,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = DB::table('users')->insert([
+            'role_id' => $request->role,
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'username' => $request->uname,
+            'password' => Hash::make($request->password),
+            'plain_password' => $request->password,
+            'email' => $request->email,
+            'line_id' => $request->line,
+            'status' => 'active'
+        ]);
+
+        return response()->json($user);
     }
 
     /**
@@ -57,7 +77,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::where('id', $id)->first();
+
+        return response()->json($user);
     }
 
     /**
@@ -69,7 +91,16 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->phone = $request->phone;
+        $user->username = $request->uname;
+        $user->email = $request->email;
+        $user->line_id = $request->line;
+        $user->status = $request->status;
+        $user->save();
+
+        return response()->json($user);
     }
 
     /**
@@ -80,6 +111,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = DB::delete('delete from users where id = ?', [$id]);
+
+        return response()->json($user);
     }
 }

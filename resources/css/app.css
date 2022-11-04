@@ -83,7 +83,6 @@ input[type=number]{-moz-appearance:textfield;} /* Firefox */
 .tbl tbody tr td{@apply h-[38px] border border-[#3f3f3f] px-3 text-gray-300 font-normal whitespace-nowrap;}
 .tbl tbody tr td a{@apply text-blue-400;}
 .tbl tbody tr:hover td{@apply bg-[#303030];}
-.tbl tbody tr:hover td a{@apply underline;}
 .tbl tbody tr td:first-child{@apply border-l-0;}
 .tbl tbody tr td:last-child{@apply border-r-0;}
 
@@ -112,6 +111,10 @@ input[type=number]{-moz-appearance:textfield;} /* Firefox */
 .badge_danger{@apply text-white bg-red-500;}
 .badge_success{@apply text-white bg-green-500;}
 .badge_warning{@apply text-white bg-yellow-500;}
+
+.status{@apply flex items-center;}
+.status .dot_active{@apply w-2.5 h-2.5 rounded-full bg-green-500 mr-2;}
+.status .dot_unactive{@apply w-2.5 h-2.5 rounded-full bg-red-500 mr-2;}
 
 
 .tbl_filter{@apply flex justify-between items-center flex-col flex-wrap gap-3 my-3 sm:flex-row sm:gap-0;}

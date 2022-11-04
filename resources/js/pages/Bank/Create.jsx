@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import PageTitle from '../../components/PageTitle'
-import axios from 'axios'
 import { MdOutlineKeyboardBackspace, MdOutlineCheck } from "react-icons/md";
 import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from "react-hook-form";

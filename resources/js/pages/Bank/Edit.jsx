@@ -3,13 +3,11 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import PageTitle from '../../components/PageTitle'
 import axios from 'axios'
 import { MdOutlineKeyboardBackspace, MdOutlineCheck } from "react-icons/md";
-import 'react-toastify/dist/ReactToastify.css';
-import Swal from 'sweetalert2'
 
 const Edit = () => {
-    const [bname, setBname] = useState()
-    const [baccount, setBaccount] = useState()
-    const [status, setStatus] = useState()
+    const [bname, setBname] = useState('')
+    const [baccount, setBaccount] = useState('')
+    const [status, setStatus] = useState('')
     const navigate = useNavigate();
 
     const { id } = useParams()

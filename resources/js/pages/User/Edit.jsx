@@ -1,24 +1,62 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import PageTitle from '../../components/PageTitle'
+import axios from 'axios'
 import { MdOutlineKeyboardBackspace, MdOutlineCheck } from "react-icons/md";
-import { useForm } from "react-hook-form";
-import Swal from 'sweetalert2'
 
-const Create = () => {
-    const { register, handleSubmit, formState: {errors} } = useForm();
+const Edit = () => {
     const [name, setName] = useState('')
     const [phone, setPhone] = useState('')
     const [email, setEmail] = useState('')
     const [line, setLine] = useState('')
     const [uname, setUname] = useState('')
-    const [password, setpassword] = useState('')
-    const [role, setRole] = useState('')
+    const [status, setStatus] = useState('')
+    const navigate = useNavigate();
+
+    const { id } = useParams()
+
+    const fetchUser = async () => {
+        await axios.get(`http://127.0.0.1:8000/api/user/${id}/edit`).then(({data}) => {
+            //console.log(data)
+            const { name, phone, email, line_id, username, status } = data
+            setName(name)
+            setPhone(phone)
+            setEmail(email)
+            setLine(line_id)
+            setUname(username)
+            setStatus(status)
+        }).catch (({err}) => {
+            console.log(err)
+        })
+    }
+
+    useEffect(() => {
+        fetchUser()
+    }, [])
+
+    const updateUser = async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData()
+        formData.append('_method', 'PATCH')
+        formData.append('name', name)
+        formData.append('phone', phone)
+        formData.append('email', email)
+        formData.append('line', line)
+        formData.append('uname', uname)
+        formData.append('status', status)
+
+        axios.post(`http://127.0.0.1:8000/api/user/${id}`, formData).then(({data}) => {
+            navigate("/user")
+        }).catch(({err}) => {
+            console.log(err)
+        })
+    }
     return (
         <>
             <div className="content_container">
                 <div className="content_header">
-                    <PageTitle title="Add User"/>
+                    <PageTitle title="Edit User"/>
                 </div>
                 <div className="content_body">
                     <div className="card">
@@ -31,48 +69,15 @@ const Create = () => {
                             </div>
                         </div>
                         <div className="card_body">
-                            <form
-                                autoComplete="off"
-                                onSubmit={handleSubmit(() => {
-                                    const formData = new FormData()
-
-                                    formData.append('name', name)
-                                    formData.append('phone', phone)
-                                    formData.append('email', email)
-                                    formData.append('line', line)
-                                    formData.append('uname', uname)
-                                    formData.append('password', password)
-                                    formData.append('role', role)
-
-                                    axios.post(`http://127.0.0.1:8000/api/user`, formData).then(({data}) => {
-                                        console.log(data)
-                                        Swal.fire({
-                                            title: 'Success!',
-                                            text: "User has been inserted!",
-                                            icon: "success",
-                                            timer: '1500'
-                                        })
-                                        setName('')
-                                        setPhone('')
-                                        setEmail('')
-                                        setLine('')
-                                        setUname('')
-                                        setpassword('')
-                                        setRole('')
-                                    }).catch(({err}) => {
-                                        console.log(err)
-                                    })
-                                })}>
+                            <form autoComplete="off" onSubmit={updateUser}>
                                 <div className="frm_wrap">
                                     <div className="frm_group required">
                                         <label htmlFor="name">Name</label>
                                         <input
-                                            {...register("name", { required: 'Name is required.' })}
                                             type="text" placeholder="Enter Name" id="name"
                                             value={name}
                                             onChange={(e) => {setName(e.target.value)}}
                                         />
-                                        <span className="msg_error">{errors.name?.message}</span>
                                     </div>
                                     <div className="frm_group">
                                         <label htmlFor="phone">Phone Number</label>
@@ -101,39 +106,16 @@ const Create = () => {
                                     <div className="frm_group required">
                                         <label htmlFor="uname">Username</label>
                                         <input
-                                            {...register("username", { required: 'Username is required.' })}
                                             type="text" placeholder="Enter Username" id="uname"
                                             value={uname}
                                             onChange={(e) => {setUname(e.target.value)}}
                                         />
-                                        <span className="msg_error">{errors.username?.message}</span>
                                     </div>
                                     <div className="frm_group required">
-                                        <label htmlFor="password">Password</label>
-                                        <input
-                                            {...register("password", {
-                                                required: 'Password is required.',
-                                                minLength: {
-                                                    value: 5,
-                                                    message: "The password should contain at least 5 characters."
-                                                }
-                                            })}
-                                            type="password" placeholder="Enter Password" id="password"
-                                            value={password}
-                                            onChange={(e) => {setpassword(e.target.value)}}
-                                        />
-                                        <span className="msg_error">{errors.password?.message}</span>
-                                    </div>
-                                    <div className="frm_group required">
-                                        <label htmlFor="role">Role</label>
-                                        <select
-                                            {...register('role')}
-                                            value={role}
-                                            onChange={(e) => {setRole(e.target.value)}}
-                                        >
-                                            <option>Choose User Role</option>
-                                            <option value="1">Admin</option>
-                                            <option value="2">Staff</option>
+                                        <label htmlFor="baccount">Status</label>
+                                        <select value={status} onChange={(e) => {setStatus(e.target.value)}}>
+                                            <option value="active">Active</option>
+                                            <option value="unactive">Unactive</option>
                                         </select>
                                     </div>
                                 </div>
@@ -152,4 +134,4 @@ const Create = () => {
     )
 }
 
-export default Create
+export default Edit

@@ -17,6 +17,7 @@ import EditBank from '../pages/Bank/Edit'
 
 import ListUser from '../pages/User/Index'
 import CreateUser from '../pages/User/Create'
+import EditUser from '../pages/User/Edit'
 
 import MyAccount from '../pages/Account/MyAccount'
 import About from '../pages/Account/About'
@@ -47,7 +48,8 @@ function App() {
                     <Route path="/bank/edit/:id" element={<EditBank />} />
 
                     <Route path="/user" element={<ListUser />} />
-                    <Route path="/create_user" element={<CreateUser />} />
+                    <Route path="/user/create" element={<CreateUser />} />
+                    <Route path="/user/edit/:id" element={<EditUser />} />
 
                     <Route path="/my-account" element={<MyAccount />} />
                     <Route path="/acout" element={<About />} />

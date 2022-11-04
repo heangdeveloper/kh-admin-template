@@ -27,5 +27,6 @@ Route::get('/get_user_info/{username}', [PlayerController::class, 'getUserInfo']
 Route::group(['as' => 'api.', 'namespace' => 'App\Http\Controllers\api'], function() {
     Route::resources([
         'bank' => BankController::class,
+        'user' => UserController::class,
     ]);
 });
